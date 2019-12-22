@@ -10,14 +10,19 @@
 namespace CAPI.Models
 {
     using System;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using Encr2014;
 
     public partial class db_MAILNPPEntities : DbContext
     {
         public db_MAILNPPEntities()
             : base("name=db_MAILNPPEntities")
         {
+            var conStr = System.Configuration.ConfigurationManager.AppSettings["ConStr"];
+            var decryptConStr = Encr2014.EncryptionModule.msDecryptTool2014(conStr, "msqJmbr21#");
+            this.Database.Connection.ConnectionString = decryptConStr;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
