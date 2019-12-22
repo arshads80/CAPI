@@ -14,12 +14,64 @@ namespace CAPI.Controllers
     {
         //[BasicAuthentication]
         // GET api/bookings
-        public List<tblMailEntry> Get()
+        public HttpResponseMessage Get()
         {
+            // get OriginId
+            string originId = "";
+            var req = Request;
+            var headers = req.Headers;
+
+            if (headers.Contains("OriginId"))
+            {
+                originId = headers.GetValues("OriginId").First();
+                if (originId != "MSQ")
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid OriginId");
+                }
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Missing OriginId");
+            }
+
+
+
+            // get AuthCode
+            string authCode = "";
+
+            if (headers.Contains("AuthCode"))
+            {
+                authCode = headers.GetValues("AuthCode").First();
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Missing AuthCode");
+            }
+
+            //Check AuthCode
+            var decryptedValue = Encr2014.EncryptionModule.msDecryptTool2014(authCode, "msqJmbr21#");
+
+            if (decryptedValue.Length == 0)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid Authcode");
+            }
+            if (decryptedValue.Substring(0, 3) != "MSQ")
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid OriginId");
+            }
+            else
+            {
+                if (string.Compare(decryptedValue.Substring(6), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)) < 0)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Authcode Expired");
+                }
+            }
+
+
             using (db_MAILNPPEntities dbContext2 = new db_MAILNPPEntities())
             {
-                List<tblMailEntry> mailEntries = dbContext2.tblMailEntries.OrderByDescending(i => i.EntryID).Take(10).ToList();
-                return mailEntries;
+                tblMailEntry mailEntry = dbContext2.tblMailEntries.OrderByDescending(i => i.EntryID).Take(1).FirstOrDefault();
+                return Request.CreateResponse(HttpStatusCode.OK, mailEntry.AWBNo);
             }
         }
 
