@@ -53,7 +53,7 @@ namespace CAPI.Controllers
 
 
             string dt;
-            dt = DateTime.Now.AddMinutes(3).ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            dt = DateTime.Now.AddHours(3).ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
             string encryptedToken = EncryptionModule.msEncryptTool2014("MSQ~~~" + dt, "msqJmbr21#");
             return Request.CreateResponse(HttpStatusCode.OK,encryptedToken);
