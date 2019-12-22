@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_MAILNPPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblDocSerials">
+          <Key>
+            <PropertyRef Name="DocCode" />
+            <PropertyRef Name="DocSerial" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntryDateTime" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="DocCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DocSerial" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMailEntries">
+          <Key>
+            <PropertyRef Name="AWBNo" />
+          </Key>
+          <Property Name="EntryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntryDateTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CustID" Type="int" Nullable="false" />
+          <Property Name="AWBprefix" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="AWBserial" Type="int" Nullable="false" />
+          <Property Name="AWBNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AWBbarcode" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="CustRef" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name2" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CityCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeliveryArea" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EntryUser" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ReceiveUser" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ArrivalDateTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SenderName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DispatchDateTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Deliveryman" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DeliveryDateTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ReceiverName" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ReceiverNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Charges" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="DeliveryStatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastUpdate" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SMSDone" Type="smallint" Nullable="false" />
+          <Property Name="RecordSource" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PrintedFlag" Type="smallint" Nullable="false" />
+          <Property Name="ScheduleNo" Type="int" Nullable="false" />
+          <Property Name="DeviceID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SignImage" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Activities" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SmallActivities" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="isUpload" Type="smallint" Nullable="false" />
+          <Property Name="DestroyDate" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DestroyBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdProof" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReceiverContact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeliveryMode" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Instructions" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="d1" Type="smallint" Nullable="false" />
+          <Property Name="DevID" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ActualDeliveryTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BrCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDType" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="IDNum" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="BrName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DocType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FrmChq" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ToChq" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeliveryMethod" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="CIFno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PackType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustPriority" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="BkType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nol" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="AWBPrinted" Type="tinyint" Nullable="false" />
+          <Property Name="NoS" Type="smallint" Nullable="false" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserModified" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Building" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="BatchNo" Type="int" Nullable="false" />
+          <Property Name="ActivityStatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DlvFileDateTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DlvBr" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RecordData" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Shipper" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JmbrRef" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="BookedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SenderContact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BookingFlag" Type="tinyint" Nullable="false" />
+          <Property Name="EID_FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_Idnum" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_IssueDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_ExpiryDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_MStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_IdType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_Nationality" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_Occupation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EID_SponsorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShipperAccNo" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EID_DOB" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Shipment_Type" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Shipment_Location" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Payment_Mode" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Amount_Received" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CashCollection" Type="tinyint" Nullable="false" />
+          <Property Name="CollectionAmount" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CanFlag" Type="tinyint" Nullable="false" />
+          <Property Name="CanDateTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CanBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DeviceName" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="DevOnline" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ExtraField1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExtraField2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExtraField3" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExtraField4" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExtraField5" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactDateTime" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SpInstructions" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="QenAccept" Type="tinyint" Nullable="false" />
+          <Property Name="FutureDate" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReturnService" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="DlvCount" Type="int" Nullable="false" />
+          <Property Name="NoOfAttempts" Type="smallint" Nullable="false" />
+          <Property Name="PromoCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PromoCodeExpiry" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="GoogleReview" Type="tinyint" Nullable="false" />
+          <Property Name="ReviewSMSDate" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="db_MAILNPPModelStoreContainer">
+          <EntitySet Name="tblDocSerials" EntityType="Self.tblDocSerials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMailEntries" EntityType="Self.tblMailEntries" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_MAILNPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblDocSerial">
+          <Key>
+            <PropertyRef Name="DocCode" />
+            <PropertyRef Name="DocSerial" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntryDateTime" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DocCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocSerial" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="db_MAILNPPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDocSerials" EntityType="Self.tblDocSerial" />
+          <EntitySet Name="tblMailEntries" EntityType="db_MAILNPPModel.tblMailEntry" />
+        </EntityContainer>
+        <EntityType Name="tblMailEntry">
+          <Key>
+            <PropertyRef Name="AWBNo" />
+          </Key>
+          <Property Name="EntryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntryDateTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustID" Type="Int32" Nullable="false" />
+          <Property Name="AWBprefix" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="AWBserial" Type="Int32" Nullable="false" />
+          <Property Name="AWBNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AWBbarcode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustRef" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Name1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CityCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryArea" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EntryUser" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiveUser" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivalDateTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DispatchDateTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveryman" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryDateTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiverName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiverNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Charges" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="DeliveryStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdate" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SMSDone" Type="Int16" Nullable="false" />
+          <Property Name="RecordSource" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PrintedFlag" Type="Int16" Nullable="false" />
+          <Property Name="ScheduleNo" Type="Int32" Nullable="false" />
+          <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SignImage" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Activities" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SmallActivities" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isUpload" Type="Int16" Nullable="false" />
+          <Property Name="DestroyDate" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DestroyBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdProof" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiverContact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryMode" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Instructions" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="d1" Type="Int16" Nullable="false" />
+          <Property Name="DevID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ActualDeliveryTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BrCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IDType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IDNum" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BrName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuthName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DocType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FrmChq" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ToChq" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryMethod" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CIFno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PackType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustPriority" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="BkType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nol" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AWBPrinted" Type="Byte" Nullable="false" />
+          <Property Name="NoS" Type="Int16" Nullable="false" />
+          <Property Name="Nationality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserModified" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Building" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="BatchNo" Type="Int32" Nullable="false" />
+          <Property Name="ActivityStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DlvFileDateTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DlvBr" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RecordData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shipper" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JmbrRef" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BookedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SenderContact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookingFlag" Type="Byte" Nullable="false" />
+          <Property Name="EID_FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_Idnum" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_IssueDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_ExpiryDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_MStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_IdType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_Nationality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_Occupation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EID_SponsorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShipperAccNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="EID_DOB" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Shipment_Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Shipment_Location" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Mode" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Amount_Received" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="CashCollection" Type="Byte" Nullable="false" />
+          <Property Name="CollectionAmount" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="CanFlag" Type="Byte" Nullable="false" />
+          <Property Name="CanDateTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CanBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DevOnline" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ExtraField1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExtraField2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExtraField3" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExtraField4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExtraField5" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactDateTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SpInstructions" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="QenAccept" Type="Byte" Nullable="false" />
+          <Property Name="FutureDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ReturnService" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DlvCount" Type="Int32" Nullable="false" />
+          <Property Name="NoOfAttempts" Type="Int16" Nullable="false" />
+          <Property Name="PromoCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PromoCodeExpiry" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GoogleReview" Type="Byte" Nullable="false" />
+          <Property Name="ReviewSMSDate" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_MAILNPPModelStoreContainer" CdmEntityContainer="db_MAILNPPEntities">
+          <EntitySetMapping Name="tblDocSerials">
+            <EntityTypeMapping TypeName="db_MAILNPPModel.tblDocSerial">
+              <MappingFragment StoreEntitySet="tblDocSerials">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EntryDateTime" ColumnName="EntryDateTime" />
+                <ScalarProperty Name="DocCode" ColumnName="DocCode" />
+                <ScalarProperty Name="DocSerial" ColumnName="DocSerial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMailEntries">
+            <EntityTypeMapping TypeName="db_MAILNPPModel.tblMailEntry">
+              <MappingFragment StoreEntitySet="tblMailEntries">
+                <ScalarProperty Name="ReviewSMSDate" ColumnName="ReviewSMSDate" />
+                <ScalarProperty Name="GoogleReview" ColumnName="GoogleReview" />
+                <ScalarProperty Name="PromoCodeExpiry" ColumnName="PromoCodeExpiry" />
+                <ScalarProperty Name="PromoCode" ColumnName="PromoCode" />
+                <ScalarProperty Name="NoOfAttempts" ColumnName="NoOfAttempts" />
+                <ScalarProperty Name="DlvCount" ColumnName="DlvCount" />
+                <ScalarProperty Name="ReturnService" ColumnName="ReturnService" />
+                <ScalarProperty Name="FutureDate" ColumnName="FutureDate" />
+                <ScalarProperty Name="QenAccept" ColumnName="QenAccept" />
+                <ScalarProperty Name="SpInstructions" ColumnName="SpInstructions" />
+                <ScalarProperty Name="ContactDateTime" ColumnName="ContactDateTime" />
+                <ScalarProperty Name="ExtraField5" ColumnName="ExtraField5" />
+                <ScalarProperty Name="ExtraField4" ColumnName="ExtraField4" />
+                <ScalarProperty Name="ExtraField3" ColumnName="ExtraField3" />
+                <ScalarProperty Name="ExtraField2" ColumnName="ExtraField2" />
+                <ScalarProperty Name="ExtraField1" ColumnName="ExtraField1" />
+                <ScalarProperty Name="DevOnline" ColumnName="DevOnline" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="CanBy" ColumnName="CanBy" />
+                <ScalarProperty Name="CanDateTime" ColumnName="CanDateTime" />
+                <ScalarProperty Name="CanFlag" ColumnName="CanFlag" />
+                <ScalarProperty Name="CollectionAmount" ColumnName="CollectionAmount" />
+                <ScalarProperty Name="CashCollection" ColumnName="CashCollection" />
+                <ScalarProperty Name="Amount_Received" ColumnName="Amount_Received" />
+                <ScalarProperty Name="Payment_Mode" ColumnName="Payment_Mode" />
+                <ScalarProperty Name="Shipment_Location" ColumnName="Shipment_Location" />
+                <ScalarProperty Name="Shipment_Type" ColumnName="Shipment_Type" />
+                <ScalarProperty Name="EID_DOB" ColumnName="EID_DOB" />
+                <ScalarProperty Name="ShipperAccNo" ColumnName="ShipperAccNo" />
+                <ScalarProperty Name="EID_SponsorName" ColumnName="EID_SponsorName" />
+                <ScalarProperty Name="EID_Occupation" ColumnName="EID_Occupation" />
+                <ScalarProperty Name="EID_Nationality" ColumnName="EID_Nationality" />
+                <ScalarProperty Name="EID_IdType" ColumnName="EID_IdType" />
+                <ScalarProperty Name="EID_MStatus" ColumnName="EID_MStatus" />
+                <ScalarProperty Name="EID_Gender" ColumnName="EID_Gender" />
+                <ScalarProperty Name="EID_ExpiryDate" ColumnName="EID_ExpiryDate" />
+                <ScalarProperty Name="EID_IssueDate" ColumnName="EID_IssueDate" />
+                <ScalarProperty Name="EID_Idnum" ColumnName="EID_Idnum" />
+                <ScalarProperty Name="EID_FullName" ColumnName="EID_FullName" />
+                <ScalarProperty Name="BookingFlag" ColumnName="BookingFlag" />
+                <ScalarProperty Name="SenderContact" ColumnName="SenderContact" />
+                <ScalarProperty Name="BookedBy" ColumnName="BookedBy" />
+                <ScalarProperty Name="JmbrRef" ColumnName="JmbrRef" />
+                <ScalarProperty Name="Shipper" ColumnName="Shipper" />
+                <ScalarProperty Name="RecordData" ColumnName="RecordData" />
+                <ScalarProperty Name="DlvBr" ColumnName="DlvBr" />
+                <ScalarProperty Name="DlvFileDateTime" ColumnName="DlvFileDateTime" />
+                <ScalarProperty Name="ActivityStatus" ColumnName="ActivityStatus" />
+                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="UserModified" ColumnName="UserModified" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="NoS" ColumnName="NoS" />
+                <ScalarProperty Name="AWBPrinted" ColumnName="AWBPrinted" />
+                <ScalarProperty Name="Nol" ColumnName="Nol" />
+                <ScalarProperty Name="BkType" ColumnName="BkType" />
+                <ScalarProperty Name="CustPriority" ColumnName="CustPriority" />
+                <ScalarProperty Name="PackType" ColumnName="PackType" />
+                <ScalarProperty Name="CIFno" ColumnName="CIFno" />
+                <ScalarProperty Name="DeliveryMethod" ColumnName="DeliveryMethod" />
+                <ScalarProperty Name="ToChq" ColumnName="ToChq" />
+                <ScalarProperty Name="FrmChq" ColumnName="FrmChq" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+                <ScalarProperty Name="AuthName" ColumnName="AuthName" />
+                <ScalarProperty Name="BrName" ColumnName="BrName" />
+                <ScalarProperty Name="IDNum" ColumnName="IDNum" />
+                <ScalarProperty Name="IDType" ColumnName="IDType" />
+                <ScalarProperty Name="BrCode" ColumnName="BrCode" />
+                <ScalarProperty Name="ActualDeliveryTime" ColumnName="ActualDeliveryTime" />
+                <ScalarProperty Name="DevID" ColumnName="DevID" />
+                <ScalarProperty Name="d1" ColumnName="d1" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="DeliveryMode" ColumnName="DeliveryMode" />
+                <ScalarProperty Name="ReceiverContact" ColumnName="ReceiverContact" />
+                <ScalarProperty Name="IdProof" ColumnName="IdProof" />
+                <ScalarProperty Name="DestroyBy" ColumnName="DestroyBy" />
+                <ScalarProperty Name="DestroyDate" ColumnName="DestroyDate" />
+                <ScalarProperty Name="isUpload" ColumnName="isUpload" />
+                <ScalarProperty Name="SmallActivities" ColumnName="SmallActivities" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Activities" ColumnName="Activities" />
+                <ScalarProperty Name="SignImage" ColumnName="SignImage" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="ScheduleNo" ColumnName="ScheduleNo" />
+                <ScalarProperty Name="PrintedFlag" ColumnName="PrintedFlag" />
+                <ScalarProperty Name="RecordSource" ColumnName="RecordSource" />
+                <ScalarProperty Name="SMSDone" ColumnName="SMSDone" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+                <ScalarProperty Name="Charges" ColumnName="Charges" />
+                <ScalarProperty Name="ReceiverNumber" ColumnName="ReceiverNumber" />
+                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+                <ScalarProperty Name="DeliveryDateTime" ColumnName="DeliveryDateTime" />
+                <ScalarProperty Name="Deliveryman" ColumnName="Deliveryman" />
+                <ScalarProperty Name="DispatchDateTime" ColumnName="DispatchDateTime" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="ArrivalDateTime" ColumnName="ArrivalDateTime" />
+                <ScalarProperty Name="ReceiveUser" ColumnName="ReceiveUser" />
+                <ScalarProperty Name="EntryUser" ColumnName="EntryUser" />
+                <ScalarProperty Name="DeliveryArea" ColumnName="DeliveryArea" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Name2" ColumnName="Name2" />
+                <ScalarProperty Name="Name1" ColumnName="Name1" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="CustRef" ColumnName="CustRef" />
+                <ScalarProperty Name="AWBbarcode" ColumnName="AWBbarcode" />
+                <ScalarProperty Name="AWBNo" ColumnName="AWBNo" />
+                <ScalarProperty Name="AWBserial" ColumnName="AWBserial" />
+                <ScalarProperty Name="AWBprefix" ColumnName="AWBprefix" />
+                <ScalarProperty Name="CustID" ColumnName="CustID" />
+                <ScalarProperty Name="EntryDateTime" ColumnName="EntryDateTime" />
+                <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
