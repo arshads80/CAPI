@@ -40,8 +40,9 @@ namespace CAPI.Controllers
 
             if (headers.Contains("ApiKey"))
             {
+                var configApiKey = System.Configuration.ConfigurationManager.AppSettings["ApiKey"];
                 apiKey = headers.GetValues("ApiKey").First();
-                if (apiKey != "$GFfsjkjekjad{2+-slisd^3")
+                if (apiKey != configApiKey)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid ApiKey");
                 }
