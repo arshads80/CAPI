@@ -1228,4 +1228,193 @@
 
     End Function
 
+
+    Public Function msReadRegXML(ByVal RegName As String, Optional ByVal RegDefValue As String = "", Optional ByVal RegLevel As String = "", Optional ByVal RegDesc As String = "", Optional ByVal RegFile As String = "msRegSet.rs.xml") As String
+
+        ' 2016-05-15
+        Dim appPath As String
+        appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
+
+        Dim dsxml As New DataSet
+        Dim dtbl As New DataTable
+        Dim dr As DataRow
+        msReadRegXML = RegDefValue
+
+        If My.Computer.FileSystem.FileExists(appPath & "\" & RegFile) Then
+            ' ok check
+        Else
+            ' create xml file
+            dtbl.TableName = "msRegSetting"
+            dtbl.Columns.Add("KeyName")
+            dtbl.Columns.Add("KeyValue")
+            dtbl.Columns.Add("KeyDesc")
+            dtbl.Columns.Add("KeyLevel")
+
+            dr = dtbl.Rows.Add
+
+            dr("KeyName") = RegName
+            dr("KeyValue") = RegDefValue
+            dr("KeyDesc") = RegDesc
+            If RegLevel = "" Then
+                dr("KeyLevel") = "001"
+            Else
+                dr("KeyLevel") = RegLevel
+            End If
+
+
+            dsxml.Tables.Add(dtbl)
+
+            dsxml.WriteXml(appPath & "\" & RegFile)
+
+        End If
+
+        Dim readD As String
+        readD = RegDefValue
+
+        Dim i As Integer
+
+        Dim recfound As Boolean
+        recfound = False
+
+        ' read xml file
+        Try
+            dsxml = New DataSet()
+
+            dsxml.ReadXml(appPath & "\" & RegFile)
+
+            'dsxml.Tables(0).DefaultView.RowFilter = "KeyName = '" & RegName & "'"
+
+            If dsxml.Tables(0).Rows.Count > 0 Then
+
+                For i = 0 To dsxml.Tables(0).Rows.Count - 1
+                    dr = dsxml.Tables(0).Rows(i)
+                    If dr("KeyName") = RegName Then
+                        readD = dsxml.Tables(0).Rows(i).Item("KeyValue").ToString
+                        recfound = True
+                        Exit For
+                    End If
+                Next
+
+            End If
+
+            If Not recfound Then
+
+                ' add new row 
+                dr = dsxml.Tables(0).Rows.Add
+                dr.Item("KeyName") = RegName
+                dr.Item("KeyValue") = RegDefValue
+                dr("KeyDesc") = RegDesc
+                If RegLevel = "" Then
+                    dr("KeyLevel") = "001"
+                Else
+                    dr("KeyLevel") = RegLevel
+                End If
+                dsxml.WriteXml(appPath & "\" & RegFile)
+
+            End If
+
+        Catch ex As Exception
+
+            MsgBox(ex.ToString)
+            Exit Function
+        End Try
+
+        msReadRegXML = readD
+
+    End Function
+
+    Public Sub msWriteRegXML(ByVal RegName As String, ByVal RegValue As String, Optional ByVal RegLevel As String = "", Optional ByVal RegDesc As String = "", Optional ByVal RegFile As String = "msRegSet.rs.xml")
+
+        ' 2016-05-15
+
+        Dim appPath As String
+        appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
+        Dim dsxml As New DataSet
+        Dim dtbl As New DataTable
+        Dim dr As DataRow
+
+        If My.Computer.FileSystem.FileExists(appPath & "\" & RegFile) Then
+            ' ok check
+
+        Else
+            ' create xml file
+            dtbl.TableName = "msRegSetting"
+            dtbl.Columns.Add("KeyName")
+            dtbl.Columns.Add("KeyValue")
+            dtbl.Columns.Add("KeyDesc")
+            dtbl.Columns.Add("KeyLevel")
+
+            dr = dtbl.Rows.Add
+
+            dr("KeyName") = RegName
+            dr("KeyValue") = RegValue
+            dr("KeyDesc") = RegDesc
+            If RegLevel = "" Then
+                dr("KeyLevel") = "001"
+            Else
+                dr("KeyLevel") = RegLevel
+            End If
+
+
+            dsxml.Tables.Add(dtbl)
+
+            dsxml.WriteXml(appPath & "\" & RegFile)
+
+        End If
+
+        Dim recfound As Boolean
+        recfound = False
+
+        ' open xml file
+        Try
+            dsxml = New DataSet()
+
+            dsxml.ReadXml(appPath & "\" & RegFile)
+
+            'dsxml.Tables(0).DefaultView.RowFilter = "KeyName = '" & RegName & "'"
+
+            If dsxml.Tables(0).Rows.Count > 0 Then
+                For i = 0 To dsxml.Tables(0).Rows.Count - 1
+                    dr = dsxml.Tables(0).Rows(i)
+                    If dr("KeyName") = RegName Then
+                        dr = dsxml.Tables(0).Rows(i)
+                        dr.Item("KeyValue") = RegValue
+                        If RegDesc <> "" Then
+                            dr("KeyDesc") = RegDesc
+                        End If
+
+                        If RegLevel <> "" Then
+                            dr("KeyLevel") = RegLevel
+                        End If
+                        recfound = True
+                        Exit For
+                    End If
+                Next
+
+                If Not recfound Then
+                    ' add new row 
+                    dr = dsxml.Tables(0).Rows.Add
+                    dr.Item("KeyName") = RegName
+                    dr.Item("KeyValue") = RegValue
+                    dr("KeyDesc") = RegDesc
+                    If RegLevel = "" Then
+                        dr("KeyLevel") = "001"
+                    Else
+                        dr("KeyLevel") = RegLevel
+                    End If
+
+                End If
+
+            End If
+
+            dsxml.WriteXml(appPath & "\" & RegFile)
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+
+        End Try
+
+    End Sub
+
+
 End Module
