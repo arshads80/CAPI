@@ -1228,12 +1228,13 @@
 
     End Function
 
-
     Public Function msReadRegXML(ByVal RegName As String, Optional ByVal RegDefValue As String = "", Optional ByVal RegLevel As String = "", Optional ByVal RegDesc As String = "", Optional ByVal RegFile As String = "msRegSet.rs.xml") As String
 
         ' 2016-05-15
         Dim appPath As String
-        appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
+        'appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
+        appPath = System.IO.Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory)
+
 
         Dim dsxml As New DataSet
         Dim dtbl As New DataTable
